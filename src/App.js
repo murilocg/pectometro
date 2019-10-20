@@ -1,10 +1,10 @@
 import React from 'react';
 import { CustomProvider } from './controller';
-import Views from './view';
+import View from './view';
 
 const App = () => (
   <CustomProvider>
-    <Views />
+    <View />
   </CustomProvider>
 );
 

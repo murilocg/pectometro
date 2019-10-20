@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
-const reducer = combineReducers({});
+import pec from './pec/pecReducer';
+
+const reducer = combineReducers({ pec });
 
 export default reducer;
