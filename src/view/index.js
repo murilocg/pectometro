@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, withRouter, Router } from 'react-router-dom';
-import TelaInicial from './telainicial';
+import TelaInicial from './telainicial/TelaInicial';
 import history from '../shared/history';
 
 const Rotas = () => (
