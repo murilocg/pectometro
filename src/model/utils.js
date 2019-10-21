@@ -11,5 +11,12 @@ export const parsePec = pec => ({
   ano: pec.ano,
   ementa: pec.ementa,
   numero: pec.numero,
+  url: pec.urlInteiroTeor,
   dataApresentacao: pec.dataApresentacao
+});
+
+export const parseAutor = autor => ({
+  id: autor.id,
+  nome: autor.nome,
+  tipo: autor.tipo
 });

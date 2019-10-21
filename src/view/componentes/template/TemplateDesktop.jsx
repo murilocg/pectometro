@@ -1,6 +1,5 @@
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import styles from './style';
 import { Grid } from '@material-ui/core';
 import { AccountCircle, Search } from '@material-ui/icons';
@@ -11,30 +10,36 @@ const TemplateDesktop = () => {
   return (
     <Toolbar className={classes.toolbarTop}>
       <Grid container justify='space-between' alignItems='center'>
-        <Grid item xs={2}>
-          <Typography variant='h6'>PECtômetro</Typography>
+        <Grid item>
+          <Grid container alignItems='center'>
+            <img className={classes.logo} src='/logo.png' alt='logo Pectometro' />
+            <span className={classes.nomeApp}>
+              <span className={classes.nomeAppSigla}>PEC</span>
+              <span>tômetro</span>
+            </span>
+          </Grid>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item>
           <Grid container justify='flex-end' alignItems='center'>
             <Grid item>
               <Grid container>
                 <Grid item className={classes.menuItem} onClick={() => history.push('/')}>
-                  <Typography variant='h6'>Home</Typography>
+                  <span>Home</span>
                 </Grid>
                 <Grid item className={classes.menuItem} onClick={() => history.push('/oquee')}>
-                  <Typography variant='h6'>O que é</Typography>
+                  <span>O que é</span>
                 </Grid>
                 <Grid item className={classes.menuItem} onClick={() => history.push('/quemsomos')}>
-                  <Typography variant='h6'>Quem somos</Typography>
+                  <span>Quem somos</span>
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item className={classes.menuItem}>
+            <Grid item>
               <Grid container alignItems='center'>
-                <Grid item>
+                <Grid item className={classes.menuItem}>
                   <Search className={classes.icon} />
                 </Grid>
-                <Grid item>
+                <Grid item className={classes.menuItem}>
                   <AccountCircle className={classes.icon} />
                 </Grid>
               </Grid>
