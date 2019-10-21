@@ -19,7 +19,7 @@ const styles = makeStyles(() => ({
     color: 'white',
     fontSize: '21px',
     textAlign: 'center',
-    padding: '5px 0px'
+    padding: '10px 0px'
   },
   pec: {
     fontSize: '18px',
