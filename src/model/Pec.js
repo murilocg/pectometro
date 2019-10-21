@@ -9,8 +9,9 @@ export default class Pec {
   static listaUltimasPecs = async () => {
     return await ServicePec.pesquisarPecs({
       itens: constantes.QTD_ITENS_PEC,
+      siglaTipo: 'PEC',
       ordem: 'desc',
-      ordenarPor: 'ano'
+      ordenarPor: 'id'
     });
   };
 
