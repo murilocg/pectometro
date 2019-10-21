@@ -13,10 +13,22 @@ const styles = makeStyles(theme => ({
     color: '#547191'
   },
   menuItem: {
-    padding: '0px 10px'
+    padding: '0px 10px',
+    fontSize: '20px'
   },
   icon: {
     color: 'white'
+  },
+  logo: {
+    height: '40px',
+    width: 'auto',
+    paddingRight: '10px'
+  },
+  nomeAppSigla: {
+    fontWeight: 'bold'
+  },
+  nomeApp: {
+    fontSize: '20px'
   }
 }));
 

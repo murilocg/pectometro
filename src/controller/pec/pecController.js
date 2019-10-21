@@ -10,4 +10,8 @@ export default class PecController {
     const ultimasPecs = await Pec.listaUltimasPecs();
     dispatch(pecActions.setUltimasPecs(ultimasPecs));
   };
+  static obtemPecPorId = pecId => async dispatch => {
+    const pec = await Pec.obtemPecPorId(pecId);
+    dispatch(pecActions.setPec(pec));
+  };
 }
