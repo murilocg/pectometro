@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
-import { ZoomIn } from '@material-ui/icons';
 import styles from './styles';
 import { withTemplate } from '../componentes/template';
 
@@ -9,11 +8,11 @@ const OQueE = () => {
   return (
     <Grid container justify='center'>
       <Grid item xs={12} sm={10} md={6}>
-        <Grid container className={classes.oqueeContainer}>
-          <Grid item xs={12} className={classes.oqueeTitulo}>
+        <Grid container className={classes.container}>
+          <Grid item xs={12} className={classes.titulo}>
             Proposta de Emenda Constitucional
           </Grid>
-          <Grid item xs={12} className={classes.oqueeExplicacao}>
+          <Grid item xs={12} className={classes.conteudo}>
             A Proposta de Emenda à Constituição (PEC) pode ser apresentada pelo presidente da
             República, por um terço dos deputados federais ou dos senadores ou por mais da metade
             das assembleias legislativas, desde que cada uma delas se manifeste pela maioria

@@ -1,17 +1,17 @@
 import { makeStyles } from '@material-ui/styles';
 
 const styles = makeStyles(() => ({
-  oqueeContainer: {
+  container: {
     marginTop: 50
   },
-  oqueeExplicacao: {
+  conteudo: {
     fontSize: '18px',
     border: '1px solid #CACACA',
     borderTop: 'none',
     padding: '15px',
     paddingLeft: '20px'
   },
-  oqueeTitulo: {
+  titulo: {
     background: '#8CBABE',
     color: 'white',
     fontSize: '21px',
