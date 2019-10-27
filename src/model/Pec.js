@@ -20,4 +20,13 @@ export default class Pec {
     const autores = await Autor.listaAutoresPorPec(pecId);
     return { ...pec, autores };
   };
+
+  static pesquisarPecs = async numero => {
+    return await ServicePec.pesquisarPecs({
+      siglaTipo: 'PEC',
+      numero,
+      ordem: 'desc',
+      ordenarPor: 'ano'
+    });
+  };
 }

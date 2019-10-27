@@ -2,11 +2,12 @@ import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import styles from './style';
 import { Grid } from '@material-ui/core';
-import { AccountCircle, Search } from '@material-ui/icons';
+import { Search } from '@material-ui/icons';
 import history from '../../../shared/history';
 
-const TemplateMobile = () => {
+const TemplateMobile = props => {
   const classes = styles();
+  const { setAberto } = props;
   return (
     <>
       <Toolbar className={classes.toolbarTop}>
@@ -23,10 +24,7 @@ const TemplateMobile = () => {
           <Grid item>
             <Grid container justify='flex-end' alignItems='center'>
               <Grid item className={classes.menuItem}>
-                <Search className={classes.icon} />
-              </Grid>
-              <Grid item className={classes.menuItem}>
-                <AccountCircle className={classes.icon} />
+                <Search className={classes.icon} onClick={() => setAberto(true)} />
               </Grid>
             </Grid>
           </Grid>

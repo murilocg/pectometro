@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import TemplateMobile from './TemplateMobile';
 import TemplateDesktop from './TemplateDesktop';
+import Pesquisar from './Pesquisar';
 
 const Template = props => {
   const [isMobile, setIsMobile] = useState(false);
+  const [aberto, setAberto] = useState(false);
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.screen.width < 600);
@@ -15,9 +17,17 @@ const Template = props => {
       window.removeEventListener('resize', handleResize);
     };
   });
+
   return (
     <div id='app'>
-      <AppBar position='static'>{isMobile ? <TemplateMobile /> : <TemplateDesktop />}</AppBar>
+      <AppBar position='static'>
+        {isMobile ? (
+          <TemplateMobile setAberto={setAberto} />
+        ) : (
+          <TemplateDesktop setAberto={setAberto} />
+        )}
+        <Pesquisar aberto={aberto} setAberto={setAberto} />
+      </AppBar>
       {props.children}
     </div>
   );

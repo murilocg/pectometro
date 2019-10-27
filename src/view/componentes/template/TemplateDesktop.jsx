@@ -2,11 +2,12 @@ import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import styles from './style';
 import { Grid } from '@material-ui/core';
-import { AccountCircle, Search } from '@material-ui/icons';
+import { Search } from '@material-ui/icons';
 import history from '../../../shared/history';
 
-const TemplateDesktop = () => {
+const TemplateDesktop = props => {
   const classes = styles();
+  const { setAberto } = props;
   return (
     <Toolbar className={classes.toolbarTop}>
       <Grid container justify='space-between' alignItems='center'>
@@ -21,28 +22,17 @@ const TemplateDesktop = () => {
         </Grid>
         <Grid item>
           <Grid container justify='flex-end' alignItems='center'>
-            <Grid item>
-              <Grid container>
-                <Grid item className={classes.menuItem} onClick={() => history.push('/')}>
-                  <span>Home</span>
-                </Grid>
-                <Grid item className={classes.menuItem} onClick={() => history.push('/oquee')}>
-                  <span>O que é</span>
-                </Grid>
-                <Grid item className={classes.menuItem} onClick={() => history.push('/quemsomos')}>
-                  <span>Quem somos</span>
-                </Grid>
-              </Grid>
+            <Grid item className={classes.menuItem} onClick={() => history.push('/')}>
+              <span>Home</span>
             </Grid>
-            <Grid item>
-              <Grid container alignItems='center'>
-                <Grid item className={classes.menuItem}>
-                  <Search className={classes.icon} />
-                </Grid>
-                <Grid item className={classes.menuItem}>
-                  <AccountCircle className={classes.icon} />
-                </Grid>
-              </Grid>
+            <Grid item className={classes.menuItem} onClick={() => history.push('/oquee')}>
+              <span>O que é</span>
+            </Grid>
+            <Grid item className={classes.menuItem} onClick={() => history.push('/quemsomos')}>
+              <span>Quem somos</span>
+            </Grid>
+            <Grid item className={classes.menuItem}>
+              <Search className={classes.icon} onClick={() => setAberto(true)} />
             </Grid>
           </Grid>
         </Grid>

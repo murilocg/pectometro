@@ -14,4 +14,8 @@ export default class PecController {
     const pec = await Pec.obtemPecPorId(pecId);
     dispatch(pecActions.setPec(pec));
   };
+  static pesquisarPecs = numero => async dispatch => {
+    const resultadoPesquisa = await Pec.pesquisarPecs(numero);
+    dispatch(pecActions.setResultadoPesquisa(resultadoPesquisa));
+  };
 }

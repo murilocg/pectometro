@@ -3,7 +3,8 @@ import pecActions from './pecActions';
 const DEFAULT_STATE = {
   custoPorPec: 0,
   ultimasPecs: [],
-  pec: {}
+  pec: {},
+  resultadoPesquisa: []
 };
 
 const pecReducer = (state = DEFAULT_STATE, action) => {
@@ -13,7 +14,9 @@ const pecReducer = (state = DEFAULT_STATE, action) => {
     case pecActions.SET_ULTIMAS_PECS:
       return { ...state, ultimasPecs: action.ultimasPecs };
     case pecActions.SET_PEC:
-      return { ...state, pec: action.pec };
+      return { ...state, pec: action.pec, ultimasPecs: [] };
+    case pecActions.SET_RESULTADO_PESQUISA:
+      return { ...state, resultadoPesquisa: action.resultadoPesquisa, ultimasPecs: [] };
     default:
       return { ...state };
   }
