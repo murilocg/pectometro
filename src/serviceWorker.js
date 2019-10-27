@@ -6,9 +6,6 @@ const isLocalhost = Boolean(
     window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
-const divInstall = document.getElementById('installContainer');
-const butInstall = document.getElementById('butInstall');
-
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
@@ -31,23 +28,6 @@ export function register(config) {
       } else {
         registerValidSW(swUrl, config);
       }
-    });
-
-    window.addEventListener('beforeinstallprompt', event => {
-      window.deferredPrompt = event;
-      divInstall.classList.toggle('hidden', false);
-    });
-
-    butInstall.addEventListener('click', () => {
-      const promptEvent = window.deferredPrompt;
-      if (!promptEvent) {
-        return;
-      }
-      promptEvent.prompt();
-      promptEvent.userChoice.then(result => {
-        window.deferredPrompt = null;
-        divInstall.classList.toggle('hidden', true);
-      });
     });
   }
 }
