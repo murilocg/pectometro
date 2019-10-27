@@ -5,7 +5,7 @@ import TemplateDesktop from './TemplateDesktop';
 import Pesquisar from './Pesquisar';
 
 const Template = props => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
   const [aberto, setAberto] = useState(false);
   useEffect(() => {
     function handleResize() {
