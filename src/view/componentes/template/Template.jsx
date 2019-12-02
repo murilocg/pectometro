@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import TemplateMobile from './TemplateMobile';
 import TemplateDesktop from './TemplateDesktop';
 import Pesquisar from './Pesquisar';
+import NotificationContainer from '../notification';
 
 const Template = props => {
   const [isMobile, setIsMobile] = useState(true);
@@ -28,6 +29,7 @@ const Template = props => {
         )}
         <Pesquisar aberto={aberto} setAberto={setAberto} />
       </AppBar>
+      <NotificationContainer />
       {props.children}
     </div>
   );

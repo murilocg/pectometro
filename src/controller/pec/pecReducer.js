@@ -4,7 +4,8 @@ const DEFAULT_STATE = {
   custoPorPec: 0,
   ultimasPecs: [],
   pec: {},
-  resultadoPesquisa: []
+  resultadoPesquisa: [],
+  comentarios: []
 };
 
 const pecReducer = (state = DEFAULT_STATE, action) => {
@@ -17,6 +18,10 @@ const pecReducer = (state = DEFAULT_STATE, action) => {
       return { ...state, pec: action.pec, ultimasPecs: [] };
     case pecActions.SET_RESULTADO_PESQUISA:
       return { ...state, resultadoPesquisa: action.resultadoPesquisa, ultimasPecs: [] };
+    case pecActions.SET_RESULTADO_PESQUISA:
+      return { ...state, resultadoPesquisa: action.resultadoPesquisa, ultimasPecs: [] };
+    case pecActions.SET_COMENTARIOS:
+      return { ...state, comentarios: action.comentarios };
     default:
       return { ...state };
   }

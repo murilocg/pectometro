@@ -1,9 +1,20 @@
 import constantes from './constantes';
 import ServicePec from './ServicePec';
 import Autor from './Autor';
+import NotificationException from '../shared/NotificationException';
+import mensagens from '../shared/mensagens';
 export default class Pec {
   static obtemCustoPorPec = async () => {
-    return await ServicePec.obtemCustoPorPec();
+    const custo = await ServicePec.obtemCustoPorPec();
+    return custo ? custo : 0;
+  };
+
+  static atualizarCustoPorPec = async custo => {
+    try {
+      return await ServicePec.atualizarCustoPorPec(custo);
+    } catch (e) {
+      throw new NotificationException(mensagens.ERRO_ATUALIZA_CUSTO);
+    }
   };
 
   static listaUltimasPecs = async () => {
@@ -21,12 +32,15 @@ export default class Pec {
     return { ...pec, autores };
   };
 
-  static pesquisarPecs = async numero => {
-    return await ServicePec.pesquisarPecs({
-      siglaTipo: 'PEC',
-      numero,
-      ordem: 'desc',
-      ordenarPor: 'ano'
-    });
+  static pesquisarPecs = async termo => {
+    return await ServicePec.pesquisa(termo);
+  };
+
+  static listaComentarios = async pecId => {
+    return await ServicePec.listaComentarios(pecId);
+  };
+
+  static criarComentario = async comentario => {
+    return await ServicePec.criarComentario(comentario);
   };
 }

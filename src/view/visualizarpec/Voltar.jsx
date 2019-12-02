@@ -7,10 +7,12 @@ const Voltar = () => {
   const classes = styles();
   return (
     <Grid container className={classes.voltarContainer} justify='center'>
-      <Grid item xs={12} sm={10} md={8}>
-        <span className={classes.voltarTexto} onClick={() => history.goBack()}>
-          <ArrowBack className={classes.icon} /> voltar
-        </span>
+      <Grid item xs={12} sm={8} md={6}>
+        <Grid container alignItems='center'>
+          <span className={classes.voltarTexto} onClick={() => history.goBack()}>
+            <ArrowBack className={classes.icon} /> voltar
+          </span>
+        </Grid>
       </Grid>
     </Grid>
   );

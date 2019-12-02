@@ -22,7 +22,7 @@ const DetalhePec = props => {
 
   return (
     <Grid container justify='center' className={classes.detalhePecContainer}>
-      <Grid item xs={12} sm={10} md={8}>
+      <Grid item xs={12} sm={8} md={6}>
         <Grid container>
           <Grid item xs={12} className={classes.nomePec}>
             {`PEC ${pec.numero}/${pec.ano}`}

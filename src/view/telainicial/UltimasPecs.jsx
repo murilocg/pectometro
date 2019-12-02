@@ -30,7 +30,13 @@ const UltimasPecs = props => {
               onClick={() => abrirPec(pec.id)}
             >{`PEC ${pec.numero}/${pec.ano}`}</Grid>
           ))}
-          <Grid container className={classes.containerVermais} justify='center' alignItems='center'>
+          <Grid
+            container
+            className={classes.containerVermais}
+            onClick={() => history.push('/pesquisa')}
+            justify='center'
+            alignItems='center'
+          >
             <span className={classes.vermais}>ver mais</span>
             <ZoomIn className={classes.zoonIn} />
           </Grid>

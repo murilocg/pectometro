@@ -9,12 +9,8 @@ const Pesquisar = props => {
   const { aberto, setAberto } = props;
   const handleOnChange = e => setTermo(e.target.value);
   const handleOnClick = () => {
-    const numero = Number(termo);
-    if (numero) {
-      history.push(`/pesquisa?numero=${numero}`);
-      setAberto(false);
-    }
-    setTermo('');
+    history.push(`/pesquisa?termo=${termo}`);
+    setAberto(false);
   };
   const handleOnKeyPress = e => e.charCode === 13 && handleOnClick();
   const handleOnClickCancelar = () => {

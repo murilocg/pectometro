@@ -34,6 +34,41 @@ const styles = makeStyles(() => ({
   },
   icon: {
     color: '#78DE84'
+  },
+  listaComentario: {},
+  listaComentarioItem: {
+    padding: 10,
+    borderBottom: '1px solid #CACACA'
+  },
+  comentarioUsuario: {
+    fontSize: 16,
+    padding: '0px 10px',
+    color: '#547191'
+  },
+  comentarioTexto: {
+    padding: '5px 35px',
+    paddingRight: 0
+  },
+  comentarioData: {
+    paddingLeft: 35,
+    fontSize: 14,
+    color: 'gray'
+  },
+  comentarioIcone: {
+    color: '#8CBABE'
+  },
+  inputComentarioContainer: {
+    padding: 15
+  },
+  inputComentario: {
+    width: 'calc(100% - 50px)'
+  },
+  btnEnviarComentario: {
+    color: '#00ACC1'
+  },
+  linkEntrar: {
+    fontWeight: 'bold',
+    padding: '0px 5px'
   }
 }));
 

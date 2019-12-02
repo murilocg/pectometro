@@ -1,13 +1,17 @@
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import styles from './style';
-import { Grid } from '@material-ui/core';
+import { Grid, Link } from '@material-ui/core';
 import { Search } from '@material-ui/icons';
+import ContaMenu from './ContaMenu';
 import history from '../../../shared/history';
+import { isLoggedIn } from '../../../shared/auth';
+import { AutorizacaoController } from '../../../controller';
 
 const TemplateMobile = props => {
   const classes = styles();
   const { setAberto } = props;
+  const logado = isLoggedIn();
   return (
     <>
       <Toolbar className={classes.toolbarTop}>
@@ -23,9 +27,21 @@ const TemplateMobile = props => {
           </Grid>
           <Grid item>
             <Grid container justify='flex-end' alignItems='center'>
+              {!logado && (
+                <Grid item className={classes.menuItem}>
+                  <Link className={classes.btnEntrar} onClick={() => history.push('/login')}>
+                    Entrar
+                  </Link>
+                </Grid>
+              )}
               <Grid item className={classes.menuItem}>
                 <Search className={classes.icon} onClick={() => setAberto(true)} />
               </Grid>
+              {logado && (
+                <Grid item className={classes.menuItem}>
+                  <ContaMenu logout={() => AutorizacaoController.logout()} />
+                </Grid>
+              )}
             </Grid>
           </Grid>
         </Grid>

@@ -3,12 +3,9 @@ import { PecController } from '../../controller';
 import InputPesquisa from './InputPesquisa';
 
 const mapDispatchToProps = dispatch => ({
-  pesquisar: async numero => await dispatch(PecController.pesquisarPecs(numero))
+  pesquisar: async termo => await dispatch(PecController.pesquisarPecs(termo))
 });
 
 const mapStateToProps = state => ({});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(InputPesquisa);
+export default connect(mapStateToProps, mapDispatchToProps)(InputPesquisa);

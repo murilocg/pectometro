@@ -9,12 +9,11 @@ const InputPesquisa = props => {
   const handleOnChange = e => setTermo(e.target.value);
   const handleOnKeyPress = e => {
     if (e.charCode === 13) {
-      const numero = Number(termo);
-      if (numero) history.push(`/pesquisa?numero=${numero}`);
+      history.push(`/pesquisa?termo=${termo}`);
     }
   };
   useEffect(() => {
-    pesquisar(Number(props.termo));
+    pesquisar(props.termo);
     setTermo(props.termo);
   }, [props.termo, pesquisar]);
   const classes = styles();

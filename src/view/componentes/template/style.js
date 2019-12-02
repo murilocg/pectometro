@@ -52,6 +52,13 @@ const styles = makeStyles(theme => ({
   btnPesquisar: {
     background: '#00ACC1',
     color: 'white'
+  },
+  btnEntrar: {
+    background: 'white',
+    color: '#00ACC1',
+    padding: 8,
+    borderRadius: 10,
+    fontSize: 16
   }
 }));
 
