@@ -13,7 +13,6 @@ export const armazenarSessao = dados => {
 export const isAdmin = () => {
   const { token } = obtemDadosSessao();
   const payload = jwt.decode(token);
-  console.log(payload);
   return payload.tipo === 'admin';
 };
 

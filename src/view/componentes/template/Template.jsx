@@ -4,6 +4,7 @@ import TemplateMobile from './TemplateMobile';
 import TemplateDesktop from './TemplateDesktop';
 import Pesquisar from './Pesquisar';
 import NotificationContainer from '../notification';
+import LoadingContainer from '../loading';
 
 const Template = props => {
   const [isMobile, setIsMobile] = useState(true);
@@ -29,6 +30,7 @@ const Template = props => {
         )}
         <Pesquisar aberto={aberto} setAberto={setAberto} />
       </AppBar>
+      <LoadingContainer />
       <NotificationContainer />
       {props.children}
     </div>

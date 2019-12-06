@@ -28,7 +28,6 @@ const AtualizarCustoPec = props => {
   const classes = styles();
   const { custoPorPec, obtemCustoPorPec } = props;
   const [custo, setCusto] = useState(0);
-  console.log(custoPorPec);
   useEffect(() => {
     if (!custoPorPec) obtemCustoPorPec();
     else setCusto(custoPorPec);

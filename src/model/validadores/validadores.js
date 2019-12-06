@@ -9,7 +9,7 @@ export const validarGenero = genero => {
 export const validarDataNascimento = data => {
   if (!data) throw new NotificationException(mensagens.SELECIONE_DATA_NASCIMENTO);
   const dataMinima = new Date();
-  dataMinima.setFullYear(dataMinima.getFullYear() - 15);
+  dataMinima.setFullYear(dataMinima.getFullYear() - 16);
   if (data > dataMinima) throw new NotificationException(mensagens.IDADE_MINIMA);
 };
 
