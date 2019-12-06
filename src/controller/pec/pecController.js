@@ -1,6 +1,6 @@
 import { Pec } from '../../model';
 import pecActions from './pecActions';
-import { NotificationController } from '..';
+import { NotificationController, LoadingController } from '..';
 import mensagens from '../../shared/mensagens';
 import { obtemDadosSessao } from '../../shared/auth';
 
@@ -9,6 +9,7 @@ export default class PecController {
     const custo = await Pec.obtemCustoPorPec();
     dispatch(pecActions.setCustoPorPec(custo));
   };
+
   static atualizarCustoPorPec = custo => async dispatch => {
     try {
       await Pec.atualizarCustoPorPec(custo);
@@ -17,18 +18,29 @@ export default class PecController {
       dispatch(NotificationController.send(e));
     }
   };
+
   static listaUltimasPecs = () => async dispatch => {
     const ultimasPecs = await Pec.listaUltimasPecs();
     dispatch(pecActions.setUltimasPecs(ultimasPecs));
   };
+
   static obtemPecPorId = pecId => async dispatch => {
     const pec = await Pec.obtemPecPorId(pecId);
     dispatch(pecActions.setPec(pec));
   };
+
   static pesquisarPecs = termo => async dispatch => {
-    const resultadoPesquisa = await Pec.pesquisarPecs(termo);
-    dispatch(pecActions.setResultadoPesquisa(resultadoPesquisa));
+    try {
+      await dispatch(LoadingController.show());
+      const resultadoPesquisa = await Pec.pesquisarPecs(termo);
+      dispatch(pecActions.setResultadoPesquisa(resultadoPesquisa));
+    } catch (e) {
+      dispatch(NotificationController.send(mensagens.ERRRO_INESPERADO));
+    } finally {
+      await dispatch(LoadingController.hide());
+    }
   };
+
   static listaComentarios = pecId => async dispatch => {
     try {
       const comentarios = await Pec.listaComentarios(pecId);
@@ -37,10 +49,11 @@ export default class PecController {
       dispatch(NotificationController.send(mensagens.ERRRO_INESPERADO));
     }
   };
+
   static criarComentario = comentario => async dispatch => {
     try {
       const sessao = obtemDadosSessao();
-      await Pec.criarComentario({ ...comentario, cidadaoId: Number(sessao.usuario) });
+      await Pec.criarComentario({ ...comentario, usuarioId: Number(sessao.usuario) });
       await dispatch(this.listaComentarios(comentario.pecId));
     } catch (e) {
       dispatch(NotificationController.send(mensagens.ERRRO_INESPERADO));

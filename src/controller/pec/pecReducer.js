@@ -18,8 +18,6 @@ const pecReducer = (state = DEFAULT_STATE, action) => {
       return { ...state, pec: action.pec, ultimasPecs: [] };
     case pecActions.SET_RESULTADO_PESQUISA:
       return { ...state, resultadoPesquisa: action.resultadoPesquisa, ultimasPecs: [] };
-    case pecActions.SET_RESULTADO_PESQUISA:
-      return { ...state, resultadoPesquisa: action.resultadoPesquisa, ultimasPecs: [] };
     case pecActions.SET_COMENTARIOS:
       return { ...state, comentarios: action.comentarios };
     default:

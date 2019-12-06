@@ -6,7 +6,7 @@ import { withTemplate } from '../componentes/template';
 import styles from './styles';
 const getNumeroPec = search => {
   const termo = search.substring(search.indexOf('=') + 1);
-  return termo ? termo.replace(/\%20/g, ' ') : '';
+  return termo ? decodeURIComponent(termo) : '';
 };
 
 const Pesquisa = props => {

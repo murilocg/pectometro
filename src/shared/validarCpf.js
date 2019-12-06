@@ -1,7 +1,6 @@
 const validarCPF = inputCPF => {
   let soma = 0;
   let resto;
-  console.log(typeof inputCPF);
   if (inputCPF === '00000000000') return false;
   for (let i = 1; i <= 9; i++) soma = soma + parseInt(inputCPF.substring(i - 1, i)) * (11 - i);
   resto = (soma * 10) % 11;
